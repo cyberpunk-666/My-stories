@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            padding: 0 50px;
+        }
+        .left-section {
+            max-width: 600px;
+        }
+        .left-section h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        .left-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            border-left: 4px solid #ffd700;
+            padding-left: 10px;
+        }
+        .right-section {
+            text-align: right;
+        }
+        .right-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffd700;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .project-list {
+            list-style: none;
+            padding: 0;
+        }
+        .project-list li {
+            margin-bottom: 10px;
+        }
+        .project-list a {
+            color: #ffd700;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        .project-list a:hover {
+            color: #ffffff;
+        }
+        footer {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: #888888;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-section">
+        <h1>Welcome.</h1>
+        <p>My name is [Your Name], a software developer specializing in cutting-edge, pixel-perfect interfaces. I build beautiful and intuitive digital experiences.</p>
+    </div>
+    <div class="right-section">
+        <h2>Projects</h2>
+        <ul class="project-list">
+            {% for project in projects %}
+            <li><a href="{{ url_for('view_project', project_id=project[0]) }}">{{ project[1] }}</a></li>
+            {% endfor %}
+        </ul>        
+    </div>
+    <footer>
+        ©2024 [Your Name]
+    </footer>
+</body>
+</html>
+
